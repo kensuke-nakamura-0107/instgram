@@ -24,6 +24,7 @@
 		6A78685A259AA91F0084D4CB /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A786859259AA91F0084D4CB /* PostData.swift */; };
 		6A78685D259AA9A90084D4CB /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A78685B259AA9A90084D4CB /* PostTableViewCell.swift */; };
 		6A78685E259AA9A90084D4CB /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A78685C259AA9A90084D4CB /* PostTableViewCell.xib */; };
+		6A786866259C6F2B0084D4CB /* PostCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A786865259C6F2B0084D4CB /* PostCommentController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		6A786859259AA91F0084D4CB /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		6A78685B259AA9A90084D4CB /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		6A78685C259AA9A90084D4CB /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		6A786865259C6F2B0084D4CB /* PostCommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentController.swift; sourceTree = "<group>"; };
 		7AF706361502A4229B86E138 /* Pods-instagrm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagrm.debug.xcconfig"; path = "Target Support Files/Pods-instagrm/Pods-instagrm.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3231E3EA09F105BA00A9C0 /* Pods_instagrm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagrm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 				6A786859259AA91F0084D4CB /* PostData.swift */,
 				6A78685B259AA9A90084D4CB /* PostTableViewCell.swift */,
 				6A78685C259AA9A90084D4CB /* PostTableViewCell.xib */,
+				6A786865259C6F2B0084D4CB /* PostCommentController.swift */,
 			);
 			path = instagrm;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				6A78685D259AA9A90084D4CB /* PostTableViewCell.swift in Sources */,
 				6A475FCC2599AEA300A017BA /* ImageSelectViewController.swift in Sources */,
 				6A475FD22599C0D200A017BA /* TabBarController.swift in Sources */,
+				6A786866259C6F2B0084D4CB /* PostCommentController.swift in Sources */,
 				6A475FCA2599AE8F00A017BA /* HomeViewController.swift in Sources */,
 				6A475FCE2599AEB600A017BA /* PostViewController.swift in Sources */,
 				6A475FD02599AEC900A017BA /* SettingViewController.swift in Sources */,
