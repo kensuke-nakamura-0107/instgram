@@ -12,9 +12,21 @@ import SVProgressHUD
 
 class PostCommentController: UIViewController {
     
+    var commentText: String!
+    
+    @IBOutlet weak var commentField: UITextField!
     
     @IBAction func postcomment(_ sender: Any) {
         print("DEBUG_PRINT: 投稿がタップされました。")
+        
+        // コメントと投稿データの保存場所を定義する
+        let postRef = Firestore.firestore().collection(Const.PostPath).document()
+        let commentRef = Storage.storage().reference().child(Const.CommentPath).child(postRef.documentID)
+        
+        // HUDで投稿処理中の表示を開始
+        SVProgressHUD.show()
+        
+        
     }
     
     @IBAction func cancel(_ sender: Any) {

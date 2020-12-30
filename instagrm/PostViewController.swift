@@ -51,9 +51,9 @@ class PostViewController: UIViewController {
             // 投稿処理が完了したので先頭画面に戻る
            UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
         }
-        
     }
     
+    // キャンセルボタンをタップしたときに呼ばれるメソッド
     @IBAction func funchandleCancelButton(_ sender: Any) {
         // 加工画面に戻る
         self.dismiss(animated: true, completion: nil)
