@@ -31,7 +31,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     // PostDataの内容をセルに表示
-       func setPostData(_ postData: PostData) {
+    func setPostData(_ postData: PostData) {
            // 画像の表示
            postImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
            let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postData.id + ".jpg")
@@ -61,8 +61,9 @@ class PostTableViewCell: UITableViewCell {
                let buttonImage = UIImage(named: "like_none")
                self.likeButton.setImage(buttonImage, for: .normal)
            }
-        
-          // コメントの表
        }
-    
+    // commentDataの内容をセルに表示
+    func setCommentData(_ commentData: CommentData) {
+        //self.commentList.xxxx = "\(commentData.name!) : \(commentData.comment!)"
+    }
 }
