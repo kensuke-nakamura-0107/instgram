@@ -94,23 +94,23 @@
 		6A475FB22599AD7500A017BA /* instagrm */ = {
 			isa = PBXGroup;
 			children = (
+				6A475FBE2599AD7600A017BA /* LaunchScreen.storyboard */,
 				6A475FB32599AD7500A017BA /* AppDelegate.swift */,
 				6A475FB52599AD7500A017BA /* SceneDelegate.swift */,
-				6A475FBC2599AD7600A017BA /* Assets.xcassets */,
-				6A475FBE2599AD7600A017BA /* LaunchScreen.storyboard */,
 				6A475FC12599AD7600A017BA /* Info.plist */,
 				6A475FD32599CBA600A017BA /* GoogleService-Info.plist */,
-				6A475FB92599AD7500A017BA /* Main.storyboard */,
-				6A475FC72599AE7900A017BA /* LoginViewController.swift */,
-				6A475FC92599AE8F00A017BA /* HomeViewController.swift */,
-				6A475FCB2599AEA300A017BA /* ImageSelectViewController.swift */,
-				6A475FCD2599AEB600A017BA /* PostViewController.swift */,
-				6A475FCF2599AEC900A017BA /* SettingViewController.swift */,
+				6A475FBC2599AD7600A017BA /* Assets.xcassets */,
 				6A475FD12599C0D200A017BA /* TabBarController.swift */,
+				6A475FC72599AE7900A017BA /* LoginViewController.swift */,
+				6A475FCB2599AEA300A017BA /* ImageSelectViewController.swift */,
+				6A475FCF2599AEC900A017BA /* SettingViewController.swift */,
+				6A475FB92599AD7500A017BA /* Main.storyboard */,
 				6A786857259AA2BA0084D4CB /* Const.swift */,
-				6A786859259AA91F0084D4CB /* PostData.swift */,
 				6A78685B259AA9A90084D4CB /* PostTableViewCell.swift */,
+				6A475FCD2599AEB600A017BA /* PostViewController.swift */,
+				6A786859259AA91F0084D4CB /* PostData.swift */,
 				6A78685C259AA9A90084D4CB /* PostTableViewCell.xib */,
+				6A475FC92599AE8F00A017BA /* HomeViewController.swift */,
 				6A786865259C6F2B0084D4CB /* PostCommentController.swift */,
 			);
 			path = instagrm;
