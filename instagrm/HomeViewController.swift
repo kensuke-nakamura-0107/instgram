@@ -122,14 +122,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
+        // postIDを取得する
+        let postId = postData.id
+       // storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+      // 遷移先ViewControllerのインスタンス取得
+        let PostCommentController = storyboard.instantiateViewController(withIdentifier: "postcomment") as! PostCommentController
+     // 遷移先画面に受け渡す
+        PostCommentController.postId = postId
+
+        self.present(PostCommentController, animated: true, completion: nil)
         
-        print("DEBUG_PRINT: \(indexPath)")
-        
-        //⭐️①配列からドキュメントIDを取り出す
-        //⭐️②ドキュメントIDを「PostCommentControllerに渡す
-        
-        let PostCommentController = storyboard!.instantiateViewController(withIdentifier: "postcomment")
-    present(PostCommentController, animated: true)
+        //        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+        //        postRef.updateData(["likes": updateValue])
   }
     
 }
