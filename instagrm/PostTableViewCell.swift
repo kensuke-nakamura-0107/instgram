@@ -40,7 +40,7 @@ class PostTableViewCell: UITableViewCell {
 
            // キャプションの表示
            self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
-
+        
            // 日時の表示
            self.dateLabel.text = ""
            if let date = postData.date {
@@ -67,6 +67,7 @@ class PostTableViewCell: UITableViewCell {
     // commentDataの内容をセルに表示
     func setCommentData(_ commentData: CommentData) {
            // コメントの表示
-           self.commentLabel.text = "\(commentData.name!) : \(commentData.comment!)"
+           //self.commentLabel.text = "\(commentData.name!) : \(commentData.comment!)"
+        self.commentLabel.text = "テスト"
     }
 }

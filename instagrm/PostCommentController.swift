@@ -18,6 +18,8 @@ class PostCommentController: UIViewController {
     
     //投稿ボタンを押したアクション
     @IBAction func postcomment(_ sender: Any) {
+        
+        if commentField.text != "" {
 
         // コメントと投稿データの保存場所を定義する
         let commentRef = Firestore.firestore().collection(Const.CommentPath).document()
@@ -33,6 +35,7 @@ class PostCommentController: UIViewController {
         commentRef.setData(commentDic)
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "投稿しました")
+        }
         // 投稿処理が完了したので先頭画面に戻る
         UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
     }
