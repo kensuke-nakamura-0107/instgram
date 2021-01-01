@@ -59,12 +59,10 @@
                         </constraints>
                         <state key="normal" title="Button" image="comment"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-Fp-62b">
-                        <rect key="frame" x="26" y="420.5" width="268" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BUv-ge-U7M">
+                        <rect key="frame" x="26" y="452" width="268" height="128"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </tableView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="na6-T4-cWs" firstAttribute="leading" secondItem="iAL-AF-HPb" secondAttribute="trailing" constant="10" id="1hm-5n-5Qp"/>
@@ -80,15 +78,15 @@
                     <constraint firstItem="BR3-Oh-7Cp" firstAttribute="leading" secondItem="na6-T4-cWs" secondAttribute="trailing" constant="10" id="X6P-TA-gkC"/>
                     <constraint firstItem="na6-T4-cWs" firstAttribute="centerY" secondItem="iAL-AF-HPb" secondAttribute="centerY" id="YL0-rW-K61"/>
                     <constraint firstItem="DQN-cu-P0n" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="d0V-jx-tnz"/>
+                    <constraint firstItem="BUv-ge-U7M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="dRm-5E-9lf"/>
                     <constraint firstItem="DQN-cu-P0n" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="eLv-1x-DXt"/>
+                    <constraint firstItem="BUv-ge-U7M" firstAttribute="top" secondItem="DQN-cu-P0n" secondAttribute="bottom" constant="10" id="iEV-Z6-Z7v"/>
                     <constraint firstAttribute="trailingMargin" secondItem="DQN-cu-P0n" secondAttribute="trailing" constant="10" id="icS-iG-G19"/>
                     <constraint firstItem="iAL-AF-HPb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="jq7-YG-P92"/>
-                    <constraint firstItem="fkB-Fp-62b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="mgv-pA-C6T"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BUv-ge-U7M" secondAttribute="trailing" constant="10" id="lJi-fD-17D"/>
                     <constraint firstItem="iAL-AF-HPb" firstAttribute="top" secondItem="dd6-1w-veK" secondAttribute="bottom" constant="10" id="pcS-7I-Hen"/>
                     <constraint firstItem="o3B-fI-pCM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="s7c-0V-zhK"/>
                     <constraint firstItem="dd6-1w-veK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wQc-st-m8U"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="fkB-Fp-62b" secondAttribute="trailing" constant="10" id="y6z-fH-T6H"/>
-                    <constraint firstItem="fkB-Fp-62b" firstAttribute="top" secondItem="DQN-cu-P0n" secondAttribute="bottom" constant="10" id="y7b-q0-hgf"/>
                     <constraint firstItem="DQN-cu-P0n" firstAttribute="top" secondItem="iAL-AF-HPb" secondAttribute="bottom" constant="10" id="zjE-8k-kUi"/>
                 </constraints>
             </tableViewCellContentView>
@@ -96,7 +94,7 @@
             <connections>
                 <outlet property="captionLabel" destination="DQN-cu-P0n" id="C0w-qf-44f"/>
                 <outlet property="commentButton" destination="BR3-Oh-7Cp" id="eAT-gr-kMT"/>
-                <outlet property="commentLabel" destination="fkB-Fp-62b" id="uRj-ge-1GY"/>
+                <outlet property="commentList" destination="BUv-ge-U7M" id="Iun-UJ-1gA"/>
                 <outlet property="dateLabel" destination="o3B-fI-pCM" id="SNN-68-BzS"/>
                 <outlet property="likeButton" destination="iAL-AF-HPb" id="xtV-BI-vtE"/>
                 <outlet property="likeLabel" destination="na6-T4-cWs" id="3OD-gS-abq"/>

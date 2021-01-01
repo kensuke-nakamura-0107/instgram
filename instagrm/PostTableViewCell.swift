@@ -10,7 +10,8 @@ import UIKit
 import FirebaseUI
 import Firebase
 
-class PostTableViewCell: UITableViewCell {
+
+class PostTableViewCell: UITableViewCell,UITableViewDataSource, UITableViewDelegate  {
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
@@ -18,10 +19,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentList: UITableView!
     
-    @IBOutlet weak var commentLabel: UILabel!
-    
-    //@IBOutlet weak var commentList: UITableView!
+    var commentArray: [CommentData] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,10 +64,13 @@ class PostTableViewCell: UITableViewCell {
            }
        }
     
-    // commentDataの内容をセルに表示
-    func setCommentData(_ commentData: CommentData) {
-           // コメントの表示
-           //self.commentLabel.text = "\(commentData.name!) : \(commentData.comment!)"
-        self.commentLabel.text = "テスト"
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentList")!
+        return cell
+    }
+    // commentDataの内容をセルに表示
 }

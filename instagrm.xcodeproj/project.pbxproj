@@ -110,9 +110,9 @@
 				6A475FCD2599AEB600A017BA /* PostViewController.swift */,
 				6A786857259AA2BA0084D4CB /* Const.swift */,
 				6A786859259AA91F0084D4CB /* PostData.swift */,
-				6A475FC92599AE8F00A017BA /* HomeViewController.swift */,
 				6A786865259C6F2B0084D4CB /* PostCommentController.swift */,
 				6A27509A259DCC3800A39773 /* CommentData.swift */,
+				6A475FC92599AE8F00A017BA /* HomeViewController.swift */,
 				6A78685C259AA9A90084D4CB /* PostTableViewCell.xib */,
 				6A78685B259AA9A90084D4CB /* PostTableViewCell.swift */,
 			);
