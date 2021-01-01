@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseUI
+import Firebase
 
 class PostTableViewCell: UITableViewCell {
     
@@ -17,19 +18,19 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
-    @IBOutlet weak var commentList: UITableView!
+    
+    @IBOutlet weak var commentLabel: UILabel!
+    
+    //@IBOutlet weak var commentList: UITableView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
+
     // PostDataの内容をセルに表示
     func setPostData(_ postData: PostData) {
            // 画像の表示
@@ -62,8 +63,10 @@ class PostTableViewCell: UITableViewCell {
                self.likeButton.setImage(buttonImage, for: .normal)
            }
        }
+    
     // commentDataの内容をセルに表示
     func setCommentData(_ commentData: CommentData) {
-        //self.commentList.xxxx = "\(commentData.name!) : \(commentData.comment!)"
+           // コメントの表示
+           self.commentLabel.text = "\(commentData.name!) : \(commentData.comment!)"
     }
 }
