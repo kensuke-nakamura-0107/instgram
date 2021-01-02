@@ -10,8 +10,8 @@ import UIKit
 import FirebaseUI
 import Firebase
 
-
-class PostTableViewCell: UITableViewCell,UITableViewDataSource, UITableViewDelegate  {
+//,UITableViewDataSource, UITableViewDelegate
+class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
@@ -19,9 +19,11 @@ class PostTableViewCell: UITableViewCell,UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
-    @IBOutlet weak var commentList: UITableView!
+    //@IBOutlet weak var commentList: UITableView!
+    @IBOutlet weak var commentLabel: UILabel!
     
     var commentArray: [CommentData] = []
+    var postId : String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -62,15 +64,24 @@ class PostTableViewCell: UITableViewCell,UITableViewDataSource, UITableViewDeleg
                let buttonImage = UIImage(named: "like_none")
                self.likeButton.setImage(buttonImage, for: .normal)
            }
+        commentLabel.text = "テスト1"
        }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+    // PostDataの内容をセルに表示
+    func setCommentData(_ commentData: CommentData) {
+        self.commentLabel.text = "テスト2"
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentList")!
-        return cell
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return commentArray.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "commentList")!
+//        //postId = commentArray.postid
+//        let predicate = NSPredicate(format: "postId = %@",postId)
+//
+//        return cell
+//    }
     // commentDataの内容をセルに表示
 }

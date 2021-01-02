@@ -27,7 +27,7 @@ class PostCommentController: UIViewController {
         SVProgressHUD.show()
 
         let commentDic = [
-                "id":postId,
+                "postid":postId,
                 "name": user,
                 "comment": commentField.text,
                 "date": FieldValue.serverTimestamp(),

@@ -12,6 +12,7 @@ import Firebase
 class CommentData: NSObject {
     var id: String
     var name: String?
+    var postid: String?
     var comment: String?
     var date: Date?
     
@@ -21,6 +22,7 @@ class CommentData: NSObject {
     let commentDic = document.data()
     
     self.name = commentDic["name"] as? String
+    self.postid = commentDic["postid"] as? String
     self.comment = commentDic["comment"] as? String
     
     let timestamp = commentDic["date"] as? Timestamp
