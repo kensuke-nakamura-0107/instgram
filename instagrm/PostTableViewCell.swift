@@ -67,21 +67,8 @@ class PostTableViewCell: UITableViewCell {
         commentLabel.text = "テスト1"
        }
     
-    // PostDataの内容をセルに表示
-    func setCommentData(_ commentData: CommentData) {
-        self.commentLabel.text = "テスト2"
-    }
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return commentArray.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "commentList")!
-//        //postId = commentArray.postid
-//        let predicate = NSPredicate(format: "postId = %@",postId)
-//
-//        return cell
-//    }
     // commentDataの内容をセルに表示
+    func setCommentData(_ commentData: CommentData) {
+        self.commentLabel.text = "\(commentData.name!) "
+    }
 }

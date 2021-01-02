@@ -38,12 +38,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if Auth.auth().currentUser != nil {
             // ログイン済み
             if listener == nil {
-                // listener未登録なら、登録してスナップショットを受信する
+                // listener未登録なら、登録してスナップショットを受信する（ポストデータ）
                 let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
-                
-                //⭐️コメント表示テスト
+                // listener未登録なら、登録してスナップショットを受信する（コメントデータ）
                  let commentRef = Firestore.firestore().collection(Const.CommentPath).order(by: "date", descending: true)
-                
                 
                 listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
                     if let error = error {
@@ -56,15 +54,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         let postData = PostData(document: document)
                         return postData
                     }
-                    
-                    //⭐️コメント表示テスト
+                    // 取得したdocumentをもとにCommentDataを作成し、commentArrayの配列にする。
                     self.commentArray = querySnapshot!.documents.map { document in
                         print("DEBUG_PRINT: document取得 \(document.documentID)")
                         let commentData = CommentData(document: document)
                         return commentData
                     }
-                    
-                    
                     // TableViewの表示を更新する
                     self.tableView.reloadData()
                 }
@@ -89,6 +84,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         cell.setPostData(postArray[indexPath.row])
+        
+        _ = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
+        cell.setCommentData(commentArray[indexPath.row])
         
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
@@ -141,15 +139,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let postId = postData.id
        // storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
-      // 遷移先ViewControllerのインスタンス取得
+       // 遷移先ViewControllerのインスタンス取得
         let PostCommentController = storyboard.instantiateViewController(withIdentifier: "postcomment") as! PostCommentController
-     // 遷移先画面に受け渡す
+      // 遷移先画面に受け渡す
         PostCommentController.postId = postId
 
         self.present(PostCommentController, animated: true, completion: nil)
-        
-        //        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
-        //        postRef.updateData(["likes": updateValue])
   }
     
 }
