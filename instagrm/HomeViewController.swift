@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // 投稿データを格納する配列
     var postArray: [PostData] = []
+    var commentArray: [CommentData] = []
     
     // Firestoreのリスナー
     var listener: ListenerRegistration!
@@ -39,6 +40,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if listener == nil {
                 // listener未登録なら、登録してスナップショットを受信する
                 let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
+                
+                //⭐️コメント表示テスト
+                 let commentRef = Firestore.firestore().collection(Const.CommentPath).order(by: "date", descending: true)
+                
+                
                 listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
                     if let error = error {
                         print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
@@ -50,6 +56,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         let postData = PostData(document: document)
                         return postData
                     }
+                    
+                    //⭐️コメント表示テスト
+                    self.commentArray = querySnapshot!.documents.map { document in
+                        print("DEBUG_PRINT: document取得 \(document.documentID)")
+                        let commentData = CommentData(document: document)
+                        return commentData
+                    }
+                    
+                    
                     // TableViewの表示を更新する
                     self.tableView.reloadData()
                 }
