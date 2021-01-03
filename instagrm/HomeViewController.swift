@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 // listener未登録なら、登録してスナップショットを受信する（ポストデータ）
                 let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
                 // listener未登録なら、登録してスナップショットを受信する（コメントデータ）
-                 let commentRef = Firestore.firestore().collection(Const.CommentPath).order(by: "date", descending: true)
+                let commentRef = Firestore.firestore().collection(Const.CommentPath).order(by: "date", descending: true)
                 
                 listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
                     if let error = error {
