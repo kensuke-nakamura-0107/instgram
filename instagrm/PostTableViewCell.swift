@@ -10,7 +10,6 @@ import UIKit
 import FirebaseUI
 import Firebase
 
-//,UITableViewDataSource, UITableViewDelegate
 class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postImageView: UIImageView!
@@ -19,10 +18,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
-    @IBOutlet weak var commentList: UITableView!
     @IBOutlet weak var commentLavel: UILabel!
+    @IBOutlet weak var commentView: UITextView!
     
-    var commentArray: [CommentData] = []
     var postId : String!
     
     override func awakeFromNib() {
@@ -60,16 +58,10 @@ class PostTableViewCell: UITableViewCell {
                let buttonImage = UIImage(named: "like_none")
                self.likeButton.setImage(buttonImage, for: .normal)
            }
+        // commentの内容をセルに表示
+        self.commentLavel.text = "\(postData.comment) "
+        // commentの内容をセルに表示
+        self.commentView.text = "\(postData.comment) "
+        print("DEBUG_PRINT: \(String(describing: commentView.text)))")
        }
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        commentArray.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        //self.commentList.text = "\(commentData.name!)"
-//    }
-    // commentDataの内容をセルに表示
-    func setCommentData(_ commentData: CommentData) {
-        self.commentLavel.text = "\(commentData.name!) "
-   }
 }

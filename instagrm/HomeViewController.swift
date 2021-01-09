@@ -15,7 +15,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // 投稿データを格納する配列
     var postArray: [PostData] = []
-    var commentArray: [CommentData] = []
     
     // Firestoreのリスナー
     var listener: ListenerRegistration!
@@ -40,8 +39,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if listener == nil {
                 // listener未登録なら、登録してスナップショットを受信する（ポストデータ）
                 let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
-                // listener未登録なら、登録してスナップショットを受信する（コメントデータ）
-                let commentRef = Firestore.firestore().collection(Const.CommentPath).order(by: "date", descending: true)
                 
                 listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
                     if let error = error {
@@ -53,12 +50,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         print("DEBUG_PRINT: document取得 \(document.documentID)")
                         let postData = PostData(document: document)
                         return postData
-                    }
-                    // 取得したdocumentをもとにCommentDataを作成し、commentArrayの配列にする。
-                    self.commentArray = querySnapshot!.documents.map { document in
-                        print("DEBUG_PRINT: document取得 \(document.documentID)")
-                        let commentData = CommentData(document: document)
-                        return commentData
                     }
                     // TableViewの表示を更新する
                     self.tableView.reloadData()
@@ -84,9 +75,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         cell.setPostData(postArray[indexPath.row])
-        
-        _ = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
-        cell.setCommentData(commentArray[indexPath.row])
         
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
