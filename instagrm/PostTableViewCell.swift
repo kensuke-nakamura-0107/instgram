@@ -19,8 +19,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var commentLavel: UILabel!
-    @IBOutlet weak var commentView: UITextView!
-    
+        
     var postId : String!
     
     override func awakeFromNib() {
@@ -59,9 +58,19 @@ class PostTableViewCell: UITableViewCell {
                self.likeButton.setImage(buttonImage, for: .normal)
            }
         // commentの内容をセルに表示
-        self.commentLavel.text = "\(postData.comment) "
-        // commentの内容をセルに表示
-        self.commentView.text = "\(postData.comment) "
-        print("DEBUG_PRINT: \(String(describing: commentView.text)))")
-       }
+        //self.commentLavel.text = "空欄"
+        if postData.comment.isEmpty{
+            self.commentLavel.text = ""
+        } else {
+            let comment = postData.comment
+            var comment_all = ""
+            for value in comment {
+                let comment:String = "\(value)\n"
+                print("DEBUG_PRINT: \(comment)")
+                comment_all += comment
+            }
+            self.commentLavel.text = comment_all
+            print("DEBUG_PRINT comment_all = \(comment_all)`")
+        }
+    }
 }
